@@ -2151,6 +2151,11 @@
     "regenerator-runtime" "^0.13.7"
     "ts-dedent" "^2.0.0"
 
+"@storybook/addon-styling@^0.3.1":
+  "integrity" "sha512-vKE9qG0cHKqCenhoStPXatEY67rldxhsWgChZZCm1xPSBsdwa5MuXc7IAbsx2H7GPOJEy367gIY6HGqw0oLfAA=="
+  "resolved" "https://registry.npmjs.org/@storybook/addon-styling/-/addon-styling-0.3.1.tgz"
+  "version" "0.3.1"
+
 "@storybook/addon-toolbars@6.5.16":
   "integrity" "sha512-y3PuUKiwOWrAvqx1YdUvArg0UaAwmboXFeR2bkrowk1xcT+xnRO3rML4npFeUl26OQ1FzwxX/cw6nknREBBLEA=="
   "resolved" "https://registry.npmjs.org/@storybook/addon-toolbars/-/addon-toolbars-6.5.16.tgz"

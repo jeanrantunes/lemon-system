@@ -1,14 +1,16 @@
 import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { Dialog } from './Dialog'
+import { Dialog as DialogComponent } from './Dialog'
 
 export default {
-  title: 'Título',
-  component: Dialog
-} as ComponentMeta<typeof Dialog>
+  title: 'Dialog',
+  component: DialogComponent
+} as ComponentMeta<typeof DialogComponent>
 
-const Template: ComponentStory<typeof Dialog> = args => <Dialog {...args} />
+const Template: ComponentStory<typeof DialogComponent> = args => (
+  <DialogComponent {...args} />
+)
 
-export const FirstStory = Template.bind({})
+export const Dialog = Template.bind({})
 
-FirstStory.args = {}
+Dialog.args = {}
