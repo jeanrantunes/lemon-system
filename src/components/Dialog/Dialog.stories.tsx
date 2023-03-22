@@ -77,7 +77,8 @@ export const DialogWithParagraph = Template.bind({})
 DialogWithParagraph.args = {
   title: 'title',
   isOpen: true,
-  children: 'Paragraph'
+  children: 'Paragraph',
+  closeOnOverlayClick: true
 }
 
 export const DialogWithMultipleParagraph = Template.bind({})
@@ -85,7 +86,8 @@ export const DialogWithMultipleParagraph = Template.bind({})
 DialogWithMultipleParagraph.args = {
   title: 'title',
   isOpen: true,
-  children: 'Paragraphs'
+  children: 'Paragraphs',
+  closeOnOverlayClick: true
 }
 
 export const DialogParagraphAndImage = Template.bind({})
@@ -93,5 +95,6 @@ export const DialogParagraphAndImage = Template.bind({})
 DialogParagraphAndImage.args = {
   title: 'title',
   isOpen: true,
-  children: 'ParagraphAndImage'
+  children: 'ParagraphAndImage',
+  closeOnOverlayClick: true
 }
