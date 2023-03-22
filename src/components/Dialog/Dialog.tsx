@@ -1,5 +1,8 @@
 import React from 'react'
 
-export const Dialog = () => {
-  return <>dialog component</>
+type Props = {
+  title: string
+}
+export const Dialog = ({ title }: Props) => {
+  return <>{title} component</>
 }
