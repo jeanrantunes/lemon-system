@@ -76,6 +76,7 @@ export const DialogWithParagraph = Template.bind({})
 
 DialogWithParagraph.args = {
   title: 'title',
+  isOpen: true,
   children: 'Paragraph'
 }
 
@@ -83,6 +84,7 @@ export const DialogWithMultipleParagraph = Template.bind({})
 
 DialogWithMultipleParagraph.args = {
   title: 'title',
+  isOpen: true,
   children: 'Paragraphs'
 }
 
@@ -90,5 +92,6 @@ export const DialogParagraphAndImage = Template.bind({})
 
 DialogParagraphAndImage.args = {
   title: 'title',
+  isOpen: true,
   children: 'ParagraphAndImage'
 }

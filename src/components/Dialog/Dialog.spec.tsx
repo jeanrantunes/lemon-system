@@ -3,7 +3,7 @@ import { render, screen } from '../../utils/test-utils'
 import { Dialog } from '.'
 
 test('Dialog component', () => {
-  render(<Dialog title='test' />)
+  render(<Dialog title='test' isOpen={true} />)
 
   expect(screen.getByRole('presentation')).toHaveTextContent('test')
 })

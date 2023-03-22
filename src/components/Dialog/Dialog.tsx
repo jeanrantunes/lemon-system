@@ -5,7 +5,7 @@ import { Overlay } from '../Overlay/Overlay'
 
 type Props = {
   title?: string
-  // isOpen: boolean
+  isOpen: boolean
   // onClose: () => void
   // closeOnOverlayClick: boolean
   children?: React.ReactNode
@@ -31,23 +31,38 @@ const DialogTitle = styled.h2`
   font-weight: 300;
 `
 
-const DialogCloseBtn = styled.button``
+const DialogCloseBtn = styled.button`
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  -webkit-appearance: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  padding: 0;
+  font-size: 24px;
+`
 
 const DialogContent = styled.div``
 
-export const Dialog = ({ title, children }: Props) => {
+export const Dialog = ({ title, children, isOpen = false }: Props) => {
   return (
     <Portal wrapperId='portal-modal-container'>
-      <Overlay aria-hidden />
-      <DialogContainer role='presentation'>
-        <DialogBody>
-          <DialogHeader>
-            <DialogTitle>{title}</DialogTitle>
-            <DialogCloseBtn />
-          </DialogHeader>
-          <DialogContent>{children}</DialogContent>
-        </DialogBody>
-      </DialogContainer>
+      {isOpen && (
+        <>
+          <Overlay aria-hidden />
+          <DialogContainer role='presentation'>
+            <DialogBody>
+              <DialogHeader>
+                <DialogTitle>{title}</DialogTitle>
+                <DialogCloseBtn>
+                  <span aria-hidden='true'>&#x2715;</span>
+                </DialogCloseBtn>
+              </DialogHeader>
+              <DialogContent>{children}</DialogContent>
+            </DialogBody>
+          </DialogContainer>
+        </>
+      )}
     </Portal>
   )
 }
