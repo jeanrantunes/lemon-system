@@ -3,6 +3,16 @@ import { ThemeProvider } from 'styled-components'
 import Theme from '../src/styles/Theme'
 import GlobalStyles from '../src/styles/globalStyles'
 
+const customViewports = {
+  mobile: {
+    name: 'iPhoneSE',
+    styles: {
+      width: '375px',
+      height: '812px'
+    }
+  }
+}
+
 export const decorators = [
   withThemeFromJSXProvider({
     themes: {
@@ -13,4 +23,7 @@ export const decorators = [
   })
 ]
 
-export const parameters = { layout: 'fullscreen' }
+export const parameters = {
+  layout: 'fullscreen',
+  viewport: { viewports: customViewports, defaultViewport: 'iPhoneSE' }
+}
