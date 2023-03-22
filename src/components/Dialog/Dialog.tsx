@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Portal } from '../Portal'
 import { Overlay } from '../Overlay/Overlay'
@@ -6,7 +6,7 @@ import { Overlay } from '../Overlay/Overlay'
 type Props = {
   title?: string
   isOpen: boolean
-  // onClose: () => void
+  onClose: () => void
   // closeOnOverlayClick: boolean
   children?: React.ReactNode
 }
@@ -14,6 +14,8 @@ type Props = {
 const DialogContainer = styled.div`
   background-color: ${props => props.theme.color.primary.contrastText};
   color: ${props => props.theme.color.primary.main};
+  position: absolute;
+  inset: auto 0 0;
 `
 
 const DialogBody = styled.div`
@@ -42,20 +44,41 @@ const DialogCloseBtn = styled.button`
   font-size: 24px;
 `
 
-const DialogContent = styled.div``
+const DialogContent = styled.div`
+  max-height: 70vh;
+  overflow-x: auto;
+`
 
-export const Dialog = ({ title, children, isOpen = false }: Props) => {
+export const Dialog = ({ title, children, isOpen = false, onClose }: Props) => {
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
+
+  const handleClose = () => {
+    setModalIsOpen(false)
+    if (onClose) {
+      onClose()
+    }
+  }
+
+  useEffect(() => {
+    if (!isOpen) {
+      handleClose()
+      return
+    }
+
+    setModalIsOpen(true)
+  }, [isOpen])
+
   return (
     <Portal wrapperId='portal-modal-container'>
-      {isOpen && (
+      {modalIsOpen && (
         <>
           <Overlay aria-hidden />
           <DialogContainer role='presentation'>
             <DialogBody>
               <DialogHeader>
                 <DialogTitle>{title}</DialogTitle>
-                <DialogCloseBtn>
-                  <span aria-hidden='true'>&#x2715;</span>
+                <DialogCloseBtn onClick={handleClose}>
+                  <span aria-hidden>&#x2715;</span>
                 </DialogCloseBtn>
               </DialogHeader>
               <DialogContent>{children}</DialogContent>
