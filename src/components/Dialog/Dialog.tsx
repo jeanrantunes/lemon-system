@@ -1,8 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Portal } from '../Portal'
 
 type Props = {
   title?: string
+  // isOpen: boolean
+  // onClose: () => void
+  // closeOnOverlayClick: boolean
+  // children?: React.ReactNode
 }
 
 const Container = styled.div`
@@ -11,5 +16,9 @@ const Container = styled.div`
 `
 
 export const Dialog = ({ title }: Props) => {
-  return <Container role='presentation'>{title}</Container>
+  return (
+    <Portal wrapperId='portal-modal-container'>
+      <Container role='presentation'>{title}</Container>
+    </Portal>
+  )
 }
