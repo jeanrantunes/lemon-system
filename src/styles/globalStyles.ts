@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import theme from './Theme'
 
 export default createGlobalStyle`
     *,
@@ -29,5 +30,10 @@ export default createGlobalStyle`
     }
     p, h1, h2, h3, h4, h5, h6 {
         overflow-wrap: break-word;
+    }
+    p {
+        margin-bottom: 8px;
+        font-size: ${theme.font.default};
+        font-weight: 300;
     }
 `

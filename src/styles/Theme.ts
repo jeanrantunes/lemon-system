@@ -8,10 +8,8 @@ const Theme = {
   },
 
   font: {
-    small: '0.5rem',
-    default: '1rem',
-    big: '2rem',
-    bigger: '3rem'
+    default: '1.125rem',
+    big: '1.375rem'
   }
 }
 
