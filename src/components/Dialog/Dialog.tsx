@@ -33,6 +33,7 @@ const DialogHeader = styled.div`
 const DialogTitle = styled.h2`
   font-size: ${props => props.theme.font.big};
   font-weight: 300;
+  line-height: 30px;
 `
 
 const DialogCloseBtn = styled.button`

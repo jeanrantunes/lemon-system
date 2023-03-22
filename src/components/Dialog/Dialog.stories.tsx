@@ -75,7 +75,7 @@ const Template: ComponentStory<typeof DialogComponent> = args => (
 export const DialogWithParagraph = Template.bind({})
 
 DialogWithParagraph.args = {
-  title: 'title',
+  title: 'Title',
   isOpen: true,
   children: 'Paragraph',
   closeOnOverlayClick: true
@@ -84,7 +84,7 @@ DialogWithParagraph.args = {
 export const DialogWithMultipleParagraph = Template.bind({})
 
 DialogWithMultipleParagraph.args = {
-  title: 'title',
+  title: 'Title',
   isOpen: true,
   children: 'Paragraphs',
   closeOnOverlayClick: true
@@ -93,7 +93,7 @@ DialogWithMultipleParagraph.args = {
 export const DialogParagraphAndImage = Template.bind({})
 
 DialogParagraphAndImage.args = {
-  title: 'title',
+  title: 'Title',
   isOpen: true,
   children: 'ParagraphAndImage',
   closeOnOverlayClick: true

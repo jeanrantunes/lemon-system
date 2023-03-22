@@ -35,5 +35,6 @@ export default createGlobalStyle`
         margin-bottom: ${theme.space[0]};
         font-size: ${theme.font.default};
         font-weight: 300;
+        line-height: 24px;
     }
 `
