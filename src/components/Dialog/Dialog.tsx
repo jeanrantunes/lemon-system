@@ -13,11 +13,14 @@ export type DialogProps = {
   children?: React.ReactNode
 }
 
-const DialogContainer = styled.div`
+const DialogContainer = styled.div<Partial<DialogProps>>`
   background-color: ${props => props.theme.color.primary.contrastText};
   color: ${props => props.theme.color.primary.main};
   position: absolute;
   inset: auto 0 0;
+  visibility: ${props => (props.isOpen ? 'visible' : 'hidden')};
+  transition: all 0.2s ease-in-out;
+  transform: ${props => (props.isOpen ? 'translateY(0)' : 'translateY(100%)')};
 `
 
 const DialogBody = styled.div`
@@ -106,19 +109,17 @@ export const Dialog = ({
         data-testid='overlay'
         isOpen={isOpen}
       />
-      {modalIsOpen && (
-        <DialogContainer role='dialog'>
-          <DialogBody>
-            <DialogHeader>
-              <DialogTitle>{title}</DialogTitle>
-              <DialogCloseBtn onClick={handleClose}>
-                <span aria-hidden>&#x2715;</span>
-              </DialogCloseBtn>
-            </DialogHeader>
-            <DialogContent>{children}</DialogContent>
-          </DialogBody>
-        </DialogContainer>
-      )}
+      <DialogContainer role='dialog' isOpen={modalIsOpen}>
+        <DialogBody>
+          <DialogHeader>
+            <DialogTitle>{title}</DialogTitle>
+            <DialogCloseBtn onClick={handleClose}>
+              <span aria-hidden>&#x2715;</span>
+            </DialogCloseBtn>
+          </DialogHeader>
+          <DialogContent>{children}</DialogContent>
+        </DialogBody>
+      </DialogContainer>
     </Portal>
   )
 }
