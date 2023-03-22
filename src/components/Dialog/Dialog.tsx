@@ -12,8 +12,8 @@ type Props = {
 }
 
 const Container = styled.div`
-  background-color: ${props => props.theme.color.secundary.contrastText};
-  color: ${props => props.theme.color.secundary.main};
+  background-color: ${props => props.theme.color.primary.contrastText};
+  color: ${props => props.theme.color.primary.main};
 `
 
 export const Dialog = ({ title }: Props) => {
