@@ -5,7 +5,7 @@ import { Overlay } from '../Overlay/Overlay'
 
 const ESC_CODE = 'Escape'
 
-type Props = {
+export type DialogProps = {
   title?: string
   isOpen: boolean
   onClose: () => void
@@ -57,7 +57,7 @@ export const Dialog = ({
   isOpen = false,
   closeOnOverlayClick = true,
   onClose
-}: Props) => {
+}: DialogProps) => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
 
   const handleClose = () => {
@@ -101,8 +101,12 @@ export const Dialog = ({
     <Portal wrapperId='portal-modal-container'>
       {modalIsOpen && (
         <>
-          <Overlay aria-hidden onClick={handleCloseOnOverlayClick} />
-          <DialogContainer role='presentation'>
+          <Overlay
+            aria-hidden
+            onClick={handleCloseOnOverlayClick}
+            data-testid='overlay'
+          />
+          <DialogContainer role='dialog'>
             <DialogBody>
               <DialogHeader>
                 <DialogTitle>{title}</DialogTitle>
