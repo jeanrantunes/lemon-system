@@ -17,12 +17,13 @@ const DialogContainer = styled.div`
 `
 
 const DialogBody = styled.div`
-  padding: 32px;
+  padding: ${props => props.theme.space[1]};
 `
 
 const DialogHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: ${props => props.theme.space[2]};
 `
 
 const DialogTitle = styled.h2`

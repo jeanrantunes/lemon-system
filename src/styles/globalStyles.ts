@@ -32,7 +32,7 @@ export default createGlobalStyle`
         overflow-wrap: break-word;
     }
     p {
-        margin-bottom: 8px;
+        margin-bottom: ${theme.space[0]};
         font-size: ${theme.font.default};
         font-weight: 300;
     }
