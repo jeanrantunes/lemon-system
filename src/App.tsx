@@ -13,7 +13,12 @@ function App() {
       <header className='App-header'>
         <button onClick={() => setOpenIsModal(true)}>Open Dialog</button>
 
-        <Dialog title='Title' isOpen={openIsModal} onClose={closeCallback}>
+        <Dialog
+          title='Title'
+          isOpen={openIsModal}
+          onClose={closeCallback}
+          closeOnOverlayClick={true}
+        >
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim

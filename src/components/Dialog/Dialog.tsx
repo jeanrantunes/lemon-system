@@ -3,11 +3,13 @@ import styled from 'styled-components'
 import { Portal } from '../Portal'
 import { Overlay } from '../Overlay/Overlay'
 
+const ESC_CODE = 'Escape'
+
 type Props = {
   title?: string
   isOpen: boolean
   onClose: () => void
-  // closeOnOverlayClick: boolean
+  closeOnOverlayClick: boolean
   children?: React.ReactNode
 }
 
@@ -49,7 +51,13 @@ const DialogContent = styled.div`
   overflow-x: auto;
 `
 
-export const Dialog = ({ title, children, isOpen = false, onClose }: Props) => {
+export const Dialog = ({
+  title,
+  children,
+  isOpen = false,
+  closeOnOverlayClick = true,
+  onClose
+}: Props) => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
 
   const handleClose = () => {
@@ -58,6 +66,27 @@ export const Dialog = ({ title, children, isOpen = false, onClose }: Props) => {
       onClose()
     }
   }
+
+  const handleCloseOnOverlayClick = () => {
+    if (!closeOnOverlayClick) {
+      return
+    }
+
+    handleClose()
+  }
+
+  useEffect(() => {
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.code === ESC_CODE) {
+        handleClose()
+      }
+    }
+    document.addEventListener('keyup', handleEsc)
+
+    return () => {
+      document.removeEventListener('keyup', handleEsc)
+    }
+  }, [])
 
   useEffect(() => {
     if (!isOpen) {
@@ -72,7 +101,7 @@ export const Dialog = ({ title, children, isOpen = false, onClose }: Props) => {
     <Portal wrapperId='portal-modal-container'>
       {modalIsOpen && (
         <>
-          <Overlay aria-hidden />
+          <Overlay aria-hidden onClick={handleCloseOnOverlayClick} />
           <DialogContainer role='presentation'>
             <DialogBody>
               <DialogHeader>
