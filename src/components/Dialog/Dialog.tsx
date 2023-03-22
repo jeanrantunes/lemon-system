@@ -11,5 +11,5 @@ const Container = styled.div`
 `
 
 export const Dialog = ({ title }: Props) => {
-  return <Container>{title} component</Container>
+  return <Container role='presentation'>{title}</Container>
 }
