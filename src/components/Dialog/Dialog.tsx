@@ -100,25 +100,24 @@ export const Dialog = ({
 
   return (
     <Portal wrapperId='portal-modal-container'>
+      <Overlay
+        aria-hidden
+        onClick={handleCloseOnOverlayClick}
+        data-testid='overlay'
+        isOpen={isOpen}
+      />
       {modalIsOpen && (
-        <>
-          <Overlay
-            aria-hidden
-            onClick={handleCloseOnOverlayClick}
-            data-testid='overlay'
-          />
-          <DialogContainer role='dialog'>
-            <DialogBody>
-              <DialogHeader>
-                <DialogTitle>{title}</DialogTitle>
-                <DialogCloseBtn onClick={handleClose}>
-                  <span aria-hidden>&#x2715;</span>
-                </DialogCloseBtn>
-              </DialogHeader>
-              <DialogContent>{children}</DialogContent>
-            </DialogBody>
-          </DialogContainer>
-        </>
+        <DialogContainer role='dialog'>
+          <DialogBody>
+            <DialogHeader>
+              <DialogTitle>{title}</DialogTitle>
+              <DialogCloseBtn onClick={handleClose}>
+                <span aria-hidden>&#x2715;</span>
+              </DialogCloseBtn>
+            </DialogHeader>
+            <DialogContent>{children}</DialogContent>
+          </DialogBody>
+        </DialogContainer>
       )}
     </Portal>
   )
