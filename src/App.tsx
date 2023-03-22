@@ -4,6 +4,8 @@ import { Dialog } from './components/Dialog'
 
 const Container = styled.div`
   position: relative;
+  max-width: 1300px;
+  margin: 30px auto;
 `
 
 function App() {

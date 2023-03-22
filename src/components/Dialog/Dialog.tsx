@@ -66,6 +66,7 @@ export const Dialog = ({
 
   const handleClose = () => {
     setModalIsOpen(false)
+    document.querySelector('html')?.classList.remove('overflow-hidden')
     if (onClose) {
       onClose()
     }
@@ -99,6 +100,7 @@ export const Dialog = ({
     }
 
     setModalIsOpen(true)
+    document.querySelector('html')?.classList.add('overflow-hidden')
   }, [isOpen])
 
   return (
@@ -107,7 +109,7 @@ export const Dialog = ({
         aria-hidden
         onClick={handleCloseOnOverlayClick}
         data-testid='overlay'
-        isOpen={isOpen}
+        isOpen={modalIsOpen}
       />
       <DialogContainer role='dialog' isOpen={modalIsOpen}>
         <DialogBody>

@@ -37,4 +37,7 @@ export default createGlobalStyle`
         font-weight: 300;
         line-height: 24px;
     }
+    .overflow-hidden {
+        overflow: hidden;
+    }
 `
